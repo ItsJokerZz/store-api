@@ -40,8 +40,6 @@ extern "C" {
 #define B2GB(x)   ((size_t) (x) >> 30)
 #define B2MB(x)   ((size_t) (x) >> 20)
 
-
-#define ORBIS_SYSMODULE_MESSAGE_DIALOG 0x00A4 // libSceMsgDialog.sprx
 #define STORE_TID "NPXS39041"
 
 //#define assert(expr) if (!(expr)) msgok(FATAL, "Assertion Failed!");
@@ -59,17 +57,6 @@ enum Flag
     VRMode = 8,
     NonVRMode = 16
 };
-
-typedef struct _LncAppParam
-{
-    uint32_t sz;
-    uint32_t user_id;
-    uint32_t app_opt;
-    uint64_t crash_report;
-    enum Flag check_flag;
-}
-LncAppParam;
-
 
 #define BETA 0
 //#define LOCALHOST_WINDOWS 1

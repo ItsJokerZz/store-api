@@ -301,8 +301,6 @@ void hexDump (
     printf ("  %s\n", buff);
 }
 
-extern "C" uint32_t sceLncUtilLaunchApp(const char* tid, const char* argv[], LncAppParam* param);
-
 bool Launch_Store_URI(const char * query) {
   int ret = -1;
   uint32_t userId = 0;
@@ -332,11 +330,11 @@ bool Launch_Store_URI(const char * query) {
     log_for_api("[STORE_URI] Foreground UserId: %d", userId);
 
     LncAppParam param;
-    param.sz = sizeof(LncAppParam);
+    param.size = sizeof(LncAppParam);
     param.user_id = userId;
     param.app_opt = 0;
     param.crash_report = 0;
-    param.check_flag = SkipSystemUpdateCheck;
+    param.LaunchAppCheck_flag = LaunchApp_SkipSystemUpdate;
 
     const char * argv[] = {
       uri.c_str(),
